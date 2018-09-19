@@ -5,7 +5,7 @@ let db = new sqlite3.Database("./db/uts-sensor-data.db", err => {
     console.error(err.message);
   }
   console.log("Connected to the sensor database.");
-  db.run("CREATE TABLE sensor(data text)");
+  db.run("CREATE TABLE IF NOT EXISTS sensor(data text)");
 });
 
 function save(message) {
